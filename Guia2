@@ -1,0 +1,36 @@
+/* ---1---*/
+select rut || '-' || dv rut, apellidos || ' ' || nombres empleado, email correo, fecingreso, puntaje
+from empleado
+where puntaje >450
+order by puntaje desc;
+/* ---2---*/
+
+select rut || '-' || dv rut, apellidos || ' ' || nombres empleado, email , zona, sueldo
+from empleado
+where sueldo >1500000 and zona in ('Centro' , 'Oriente');
+/* ---3---*/
+select rut|| '-' || dv rut, apellidos || ' ' || nombres empleado, email , fecnac nacimiento, sueldo
+from empleado 
+where to_char(fecnac, 'MM')='06'
+order by empleado;
+/* ---4---*/
+select rut|| '-' || dv rut, apellidos || ' ' || nombres empleado, zona, rutempresa,
+      sueldo + sueldo*0.2 as sueldo_aumentado
+from empleado;
+
+/* ---5---*/
+select rut|| '-' || dv rut, apellidos || ' ' || nombres empleado, zona,numproyectos, sueldo
+from empleado
+where numproyectos in ( 8,9,10,11,12)
+order by numproyectos desc;
+/* ---6---*/
+select rut|| '-' || dv rut, apellidos || ' ' || nombres empleado, email , fecingreso ,sueldo
+from empleado
+where apellidos like '__ch%';
+
+/* ---7---*/
+
+
+select rut || '-' || dv rut , apellidos || ' ' || nombres empleado,rutempresa empresa, email , zona, sueldo
+from empleado
+where  zona not in ('Centro' , 'Norte', 'Poniente') or rutempresa  is null;
